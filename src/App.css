@@ -94,7 +94,7 @@ input::placeholder {
   display: flex;
   column-gap: 0rem;
 }
-.new-line {
+.new-line { 
   white-space: pre-line;
 }
 .country_info-img,
