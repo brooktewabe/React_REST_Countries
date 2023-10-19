@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lora", serif;
+}
+
+body {
+  background: rgb(39, 36, 54);
+} 
+
+.country_bottom {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 2rem;  
+}
+
+.country_card {
+  width: 250px;
+  border-radius: 5px;
+  background: hsl(209, 23%, 22%);
+  color: #fff;
+  margin-right:30px;
+  margin-left:25px;
+}
+
+.country_img img {
+  width: 100%;
+  height: 150px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.all_country_wrapper {
+  margin-top: 50px;
+}
+
+.country_data {
+  padding: 20px;
+}
+
+.country_data h3 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.country_bottom h4 {
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+}
+
+input {
+  padding: 10px 25px;
+  color: #fff;
+  border-radius: 5px;
+  background: hsl(209, 23%, 22%);
+  border: none;
+  outline: none;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+h2{
+  text-align:center;
+  color:white
+  
+}
+input::placeholder {
+  color: lightgray; 
+}
+
+.country_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.search{
+  padding-left:20px;
+  margin-left:10%;
+}
+
+.country_info_wrapper {
+  margin-top: 120px;
+}
+.country_info_container {
+  display: flex;
+  column-gap: 0rem;
+}
+.new-line {
+  white-space: pre-line;
+}
+.country_info-img,
+.country_info {
+  width: 50%;
+  margin-left:30px;
+}
+
+button {
+  padding: 10px 25px;
+  color: #fff;
+  background: hsl(209, 23%, 22%);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 120px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.country_info h3 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.country_info-left h5 {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  margin-right:10px;
+}
+.country_info-left h5 span {
+  color: #fff;
+  opacity: 85%;
+  font-weight: 400;
+}
