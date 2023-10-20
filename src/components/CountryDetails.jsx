@@ -23,12 +23,11 @@ const CountryDetail = () => {
             setError('No country found');
           }
     };
-
     getCountryByName();
   }, [countryName]);
 
   return (
-    <div className="country_info_wrapper">
+    <div data-testid='details-1' className="country_info_wrapper">
       <button>
         <Link to="/">Back</Link>
       </button>
