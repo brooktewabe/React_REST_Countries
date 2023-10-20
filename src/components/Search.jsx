@@ -14,15 +14,14 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div >
+    <div data-testid='search-1'>
       <input
         type="text"
         placeholder="Enter country name"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <div data-testid='search-1'>
-      <button onClick={searchHandler}>Search</button></div>
+      <button onClick={searchHandler}>Search</button>
       {isEmpty && 
       <p style={{ color: "red" }}>
         Enter country name
