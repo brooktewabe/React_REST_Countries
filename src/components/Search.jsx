@@ -17,7 +17,7 @@ const Search = ({ onSearch }) => {
     <div data-testid='search-1'>
       <input
         type="text"
-        placeholder="Enter country name"
+        placeholder="Country name"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
