@@ -10,6 +10,9 @@ const AllCountries = () => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(
+    JSON.parse(localStorage.getItem("isDarkMode")) || false
+  );
 
   const getAllCountries = async () => {
     try {
@@ -44,9 +47,25 @@ const AllCountries = () => {
     getAllCountries();
   }, []);
 
+  useEffect(() => {
+    document.body.className = isDarkMode ? "dark-mode" : "light-mode";
+    localStorage.setItem("isDarkMode", JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <div data-testid='allCountries-1' className="all_country_wrapper">
-      <h2>REST Countries</h2>
+    <div data-testid="allCountries-1" className="app-container all_country_wrapper">
+      <div className="header">
+        <div className="align-center">
+        <h2>REST Countries</h2>
+        </div>
+        <button onClick={toggleTheme}>
+          {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+        </button>
+      </div>
       <div className="country_top">
         <div className="search">
           <Search onSearch={getCountryByName} />
@@ -66,7 +85,7 @@ const AllCountries = () => {
           <p>No results found</p>
         ) : (
           countries.map((country) => (
-            <Link to={`/country/${country.name.common}`}>
+            <Link to={`/country/${country.name.common}`} key={country.name.common}>
               <div className="country_card">
                 <div className="country_img">
                   <img src={country.flags.png} alt={country.name.common} />

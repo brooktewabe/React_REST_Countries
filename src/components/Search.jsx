@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Search = ({ onSearch }) => {
+const Search = ({ onSearch, isDarkMode, toggleTheme }) => {
   const [input, setInput] = useState("");
   const [isEmpty, setIsEmpty] = useState(false);
 
@@ -13,6 +13,12 @@ const Search = ({ onSearch }) => {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      searchHandler();
+    }
+  };
+
   return (
     <div data-testid='search-1'>
       <input
@@ -20,6 +26,7 @@ const Search = ({ onSearch }) => {
         placeholder="Enter country name"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        onKeyPress={handleKeyPress}
       />
       <button onClick={searchHandler}>Search</button>
       {isEmpty && 

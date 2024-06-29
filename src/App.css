@@ -9,10 +9,19 @@
   box-sizing: border-box;
   font-family: "Lora", serif;
 }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+body.light-mode {
+  background-color: silver;
+}
 
-body {
-  background: rgb(39, 36, 54);
-} 
+body.dark-mode {
+  background-color: rgb(39, 36, 54);
+}
 
 .country_bottom {
   display: flex;
