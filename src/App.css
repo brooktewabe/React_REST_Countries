@@ -9,11 +9,11 @@
   box-sizing: border-box;
   font-family: "Lora", serif;
 }
-.header {
+.dark-mode {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  padding-right: 10px;
 }
 body.light-mode {
   background-color: silver;

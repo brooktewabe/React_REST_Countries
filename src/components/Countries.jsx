@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BASE_URL } from "../api";
 import axios from "axios";
 import Search from "./Search";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 const AllCountries = () => {
   const [countries, setCountries] = useState([]);
@@ -21,7 +22,6 @@ const AllCountries = () => {
         throw new Error("Something went wrong!");
       }
       const data = res.data;
-      console.log(data);
       setCountries(data);
       setIsLoading(false);
     } catch (error) {
@@ -35,7 +35,6 @@ const AllCountries = () => {
       const res = await axios.get(`${BASE_URL}/name/${countryName}`);
       const data = res.data;
       setCountries(data);
-
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
@@ -57,15 +56,19 @@ const AllCountries = () => {
   };
 
   return (
-    <div data-testid="allCountries-1" className="app-container all_country_wrapper">
-      <div className="header">
-        <div className="align-center">
+    <div className="all_country_wrapper">
+      <div className="align-center">
         <h2>REST Countries</h2>
+        <div className="dark-mode">
+          <p></p>
+          <DarkModeSwitch
+            checked={isDarkMode}
+            onChange={toggleTheme}
+            size={60}
+          />
         </div>
-        <button onClick={toggleTheme}>
-          {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-        </button>
       </div>
+
       <div className="country_top">
         <div className="search">
           <Search onSearch={getCountryByName} />
@@ -76,7 +79,10 @@ const AllCountries = () => {
         {isLoading && !error && (
           <h4>
             Loading...
-            <FontAwesomeIcon icon={faCircleNotch} className="text-4xl animate-spin" />
+            <FontAwesomeIcon
+              icon={faCircleNotch}
+              className="text-4xl animate-spin"
+            />
           </h4>
         )}
         {error && !isLoading && <p>{error}</p>}
@@ -85,7 +91,10 @@ const AllCountries = () => {
           <p>No results found</p>
         ) : (
           countries.map((country) => (
-            <Link to={`/country/${country.name.common}`} key={country.name.common}>
+            <Link
+              to={`/country/${country.name.common}`}
+              key={country.name.common}
+            >
               <div className="country_card">
                 <div className="country_img">
                   <img src={country.flags.png} alt={country.name.common} />
