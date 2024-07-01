@@ -11,8 +11,8 @@ const AllCountries = () => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(
-    JSON.parse(localStorage.getItem("isDarkMode")) || false
+  const [isLightMode, setIsLightMode] = useState(
+    JSON.parse(localStorage.getItem("isLightMode")) || false
   );
 
   const getAllCountries = async () => {
@@ -47,12 +47,12 @@ const AllCountries = () => {
   }, []);
 
   useEffect(() => {
-    document.body.className = isDarkMode ? "dark-mode" : "light-mode";
-    localStorage.setItem("isDarkMode", JSON.stringify(isDarkMode));
-  }, [isDarkMode]);
+    document.body.className = isLightMode ?  "light-mode":"dark-mode" ;
+    localStorage.setItem("isLightMode", JSON.stringify(isLightMode));
+  }, [isLightMode]);
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsLightMode(!isLightMode);
   };
 
   return (
@@ -62,7 +62,7 @@ const AllCountries = () => {
         <div className="dark-mode">
           <p></p>
           <DarkModeSwitch
-            checked={isDarkMode}
+            checked={!isLightMode}
             onChange={toggleTheme}
             size={60}
           />
