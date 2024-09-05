@@ -56,7 +56,7 @@ const AllCountries = () => {
   };
 
   return (
-    <div className="all_country_wrapper">
+    <div className="all_country_wrapper" data-testid='allCountries-1'>
       <div className="align-center">
         <h2>REST Countries</h2>
         <div className="dark-mode">
